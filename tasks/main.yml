@@ -1,0 +1,22 @@
+---
+# tasks file for code
+
+- name: create user
+  user:
+    name: "{{ app_user }}"
+
+- name: Creates directory
+  file:
+    path: "{{ app_folder }}"
+    state: directory
+    owner: "{{ app_user }}"
+    mode: 0775
+    recurse: yes
+
+- name: untar repo source code
+  unarchive:
+    src: "/tmp/code.tar.gz"
+    dest: "{{ app_folder }}"
+    remote_src: yes
+    owner: "{{ app_user }}"
+    mode: 0775
