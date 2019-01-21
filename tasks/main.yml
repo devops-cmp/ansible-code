@@ -10,13 +10,18 @@
     path: "{{ app_folder }}"
     state: directory
     owner: "{{ app_user }}"
-    mode: 0775
+    mode: 0755
     recurse: yes
 
 - name: untar repo source code
   unarchive:
-    src: "/tmp/code.tar.gz"
+    src: "{{ archived_code }}"
     dest: "{{ app_folder }}"
     remote_src: yes
     owner: "{{ app_user }}"
-    mode: 0775
+
+- name: Set permissions for files
+  cmd: "find {{ app_folder }} -type f -exec chmod 644 {} \\;"
+
+- name: Set permissions for folders
+  cmd: "find {{ app_folder }} -type d -exec chmod 755 {} \\;"

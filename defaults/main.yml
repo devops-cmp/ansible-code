@@ -1,5 +1,5 @@
 ---
 # defaults file for code
-archived_code: "/tmp/code.tar.gz"
+archived_code: ""
 app_folder: "/app"
 app_user: "worker"
