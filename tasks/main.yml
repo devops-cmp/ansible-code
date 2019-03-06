@@ -19,9 +19,13 @@
     dest: "{{ app_folder }}"
     remote_src: yes
     owner: "{{ app_user }}"
+<<<<<<< HEAD
 
 - name: Set permissions for files
   cmd: "find {{ app_folder }} -type f -exec chmod 644 {} \\;"
 
 - name: Set permissions for folders
   cmd: "find {{ app_folder }} -type d -exec chmod 755 {} \\;"
+=======
+    mode: 0644
+>>>>>>> 0750711... Update main.yml
