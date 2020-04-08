@@ -17,7 +17,6 @@
   unarchive:
     src: "{{ archived_code }}"
     dest: "{{ app_folder }}"
-    remote_src: yes
     owner: "{{ app_user }}"
 
 - name: Set permissions for files
