@@ -4,6 +4,7 @@
 - name: create user
   user:
     name: "{{ app_user }}"
+    shell: "{{ user_shell | default('/bin/bash') }}"
 
 - name: Creates directory
   file:
